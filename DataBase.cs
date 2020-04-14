@@ -17,12 +17,13 @@ namespace HomeWork14._04
         {
             connect.Close();
         }
-        public void AddPerson (string LastName,string FirstName, string MiddleName, DateTime BirthDate)
+        public void AddPerson (string LastName,string FirstName, string MiddleName, int y,int m,int d)
         {
-            string commandText = $"insert into Person ([LastName],[FirstName],[MiddleName],[BirthDate]) values ('LastName','FirstName','MiddleName',1998.07.25)";
-            using(SqlCommand command = new SqlCommand(commandText,connect)){
-                
-                System.Console.WriteLine("Successfull");
+            using(SqlCommand command = new SqlCommand("insert into Person([LastName],[FirstName],[MiddleName],[BirthDate]) values ('"+ LastName +"','" + FirstName + "','" + MiddleName + "',DATETIMEFROMPARTS("+y+","+m+","+d+","+1+","+1+","+1+","+1+"))",connect))
+            {
+                int a = command.ExecuteNonQuery();
+                if(a > 0)
+                System.Console.WriteLine("Successfully added to database!");
             }
         }
     }
