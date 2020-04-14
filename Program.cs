@@ -26,7 +26,7 @@ namespace HomeWork14._04
                         Console.Write("Введите дату рождения (гггг-мм-дд): ");
                         string date = Console.ReadLine();
                         int y = int.Parse(date.Substring(0,4)),m = int.Parse(date.Substring(5,2)),d = int.Parse(date.Substring(8,2));  
-                        dbwork.AddPerson(lastName,firstName,middleName,y,m,d);
+                        dbwork.Insert(lastName,firstName,middleName,y,m,d);
                         System.Console.WriteLine("-------------------------------------------------------------------------------------");
                     break;
                     case 2:
