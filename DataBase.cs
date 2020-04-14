@@ -52,5 +52,13 @@ namespace HomeWork14._04
                 }
             }
         }
+        public void Delete(int Id)
+        {
+            using(SqlCommand command = new SqlCommand("delete Person where Id =" + Id,connect))
+            {
+                if(command.ExecuteNonQuery() > 0)
+                System.Console.WriteLine("Успешно удалено!");
+            }
+        }
     }
 }

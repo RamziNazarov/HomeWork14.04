@@ -43,9 +43,15 @@ namespace HomeWork14._04
                     break;
                     case 4:
                         Console.Clear();
+                        
+                        System.Console.WriteLine("-------------------------------------------------------------------------------------");
                     break;
                     case 5:
                         Console.Clear();
+                        System.Console.Write("Введите Id: ");
+                        int id = int.Parse(Console.ReadLine());
+                        dbwork.Delete(id);
+                        System.Console.WriteLine("-------------------------------------------------------------------------------------");
                     break;
                     default:
                         Console.Clear();
