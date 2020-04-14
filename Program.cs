@@ -43,7 +43,17 @@ namespace HomeWork14._04
                     break;
                     case 4:
                         Console.Clear();
-                        
+                        System.Console.Write("Введите Id: ");
+                        int idtoupdate = int.Parse(Console.ReadLine());
+                        System.Console.Write("Введите новую фамилия: ");
+                        string lastNameforupdate = Console.ReadLine();
+                        System.Console.Write("Введите новое имя: ");
+                        string firstNameforupdate = Console.ReadLine();
+                        System.Console.Write("Введите новое отчество: ");
+                        string middleNameforupdate = Console.ReadLine();
+                        System.Console.Write("Введите дату рождения (гггг-мм-дд): ");
+                        string birthDate = Console.ReadLine();
+                        dbwork.UpdateById(idtoupdate,lastNameforupdate,firstNameforupdate,middleNameforupdate,birthDate);
                         System.Console.WriteLine("-------------------------------------------------------------------------------------");
                     break;
                     case 5:

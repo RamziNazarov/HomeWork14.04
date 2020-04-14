@@ -52,6 +52,15 @@ namespace HomeWork14._04
                 }
             }
         }
+        public void UpdateById(int Id,string LastName,string FirstName,string MiddleName,string BirthDate)
+        {
+            int y = int.Parse(BirthDate.Substring(0,4)),m = int.Parse(BirthDate.Substring(5,2)),d = int.Parse(BirthDate.Substring(8,2));
+            using(SqlCommand command = new SqlCommand("UPDATE Person set LastName = '"+ LastName +"',FirstName ='"+ FirstName+"',MiddleName ='"+ MiddleName +"',BirthDate = DATETIMEFROMPARTS("+y+","+m+","+d+","+1+","+1+","+1+","+1+") where Id =" + Id,connect))
+            {
+                if(command.ExecuteNonQuery() > 0)
+                System.Console.WriteLine("Updated Person with " + Id + " Id!");
+            }
+        }
         public void Delete(int Id)
         {
             using(SqlCommand command = new SqlCommand("delete Person where Id =" + Id,connect))
