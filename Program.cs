@@ -27,13 +27,19 @@ namespace HomeWork14._04
                         string date = Console.ReadLine();
                         int y = int.Parse(date.Substring(0,4)),m = int.Parse(date.Substring(5,2)),d = int.Parse(date.Substring(8,2));  
                         dbwork.AddPerson(lastName,firstName,middleName,y,m,d);
-                        System.Console.WriteLine("------------------------------");
+                        System.Console.WriteLine("-------------------------------------------------------------------------------------");
                     break;
                     case 2:
                         Console.Clear();
+                        dbwork.SelectAll();
+                        System.Console.WriteLine("-------------------------------------------------------------------------------------");
                     break;
                     case 3:
                         Console.Clear();
+                        System.Console.Write("Введите Id: ");
+                        int Id = int.Parse(Console.ReadLine());
+                        dbwork.SelectById(Id);
+                        System.Console.WriteLine("-------------------------------------------------------------------------------------");
                     break;
                     case 4:
                         Console.Clear();
