@@ -6,7 +6,11 @@ namespace HomeWork14._04
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            DataBaseWorking dbwork = new DataBaseWorking();
+            dbwork.OpenConnecting();
+            dbwork.AddPerson("Nazarov","Ramz","Saidovich",DateTime.Now);
+            dbwork.CloseConnecting();
+            Console.ReadKey();
         }
     }
 }
