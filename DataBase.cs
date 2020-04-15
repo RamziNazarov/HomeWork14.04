@@ -44,10 +44,14 @@ namespace HomeWork14._04
             {
                 using(SqlDataReader reader = command.ExecuteReader())
                 {
+                    int c =0;
                     while(reader.Read())
                     {
                         System.Console.WriteLine($"Id: {reader.GetValue(0)} | LastName: {reader.GetValue(1)} | FirstName: {reader.GetValue(2)} | MiddleName: {reader.GetValue(3)} | BirthDate: {reader.GetValue(4).ToString().Substring(0,10)}");
-                    }
+                        c += (reader.GetValue(0).ToString() == Id.ToString())?1:0;
+                    }   
+                    if(c == 0)
+                        System.Console.WriteLine("Такого Id не существует в базе данных!");
                 }
             }
         }
@@ -58,7 +62,9 @@ namespace HomeWork14._04
             {
                 if(command.ExecuteNonQuery() > 0)
                 System.Console.WriteLine("Updated Person with " + Id + " Id!");
-            }
+                else
+                System.Console.WriteLine("Такого Id не существует в базе данных!");
+            }    
         }
         public void Delete(int Id)
         {
@@ -66,6 +72,8 @@ namespace HomeWork14._04
             {
                 if(command.ExecuteNonQuery() > 0)
                 System.Console.WriteLine("Успешно удалено!");
+                else
+                System.Console.WriteLine("Такого Id не существует в базе данных!");
             }
         }
     }
